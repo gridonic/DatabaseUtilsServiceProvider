@@ -14,4 +14,4 @@ $app->register(new \Gridonic\Provider\DatabaseUtilsServiceProvider(), array(
 ```
 
 ## Licence
-The DatabaseUtilsServiceProvider is licensed under the [MIT license]('/LICENSE').
+The DatabaseUtilsServiceProvider is licensed under the [MIT license](LICENSE).
