@@ -17,8 +17,8 @@ class DatabaseDropCommand extends KnpCommand
             ->setName('database:drop')
             ->setDescription('Clears the database')->setHelp(
 
-<<<EOF
-    The <info>database:drop</info> command drops the database schema
+                <<<EOF
+                    The <info>database:drop</info> command drops the database schema
     <info>app/console database:drop</info>
 EOF
             );

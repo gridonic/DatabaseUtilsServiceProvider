@@ -20,8 +20,8 @@ class DatabaseResetCommand extends KnpCommand
             ->setDescription('Resets the database')
             ->setHelp(
 
-<<<EOF
-    The <info>database:reset</info> command resets the database.
+                <<<EOF
+                    The <info>database:reset</info> command resets the database.
     First it drops the whole database, after it recreates the schema.
     <info>app/console database:reset</info>
 EOF
@@ -75,6 +75,21 @@ EOF
 
         $output->writeln('....................................');
 
+        // load fixtures
+        $output->writeln('# load fixtures');
+
+        $command = $this->getApplication()->find('database:fixtures:load');
+
+        $argumentDrop = array(
+            'command' => 'database:fixtures:load',
+        );
+
+        $input = new ArrayInput($argumentDrop);
+        $command->run($input, $output);
+
+        $output->writeln('....................................');
+
+        // at the end
         $output->writeln('finished Reset');
     }
 }
