@@ -1,6 +1,6 @@
 <?php
 
-namespace Knp\Command;
+namespace Gridonic\Command;
 
 use Knp\Command\Command as KnpCommand;
 
