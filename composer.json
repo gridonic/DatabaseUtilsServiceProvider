@@ -2,7 +2,7 @@
     "name": "gridonic/database-utils-service-provider",
     "type": "library",
     "description": "Database utils service provider for Silex. Include some Database Commands and loads Fixtures into your database.",
-    "keywords": [ "doctrine2", "silex", "database", "util" ],
+    "keywords": [ "doctrine", "silex", "database", "service" ],
     "homepage": "http://gridonic.ch",
     "license": "MIT",
     "authors": [
@@ -14,7 +14,7 @@
     "require": {
         "php":                                  ">=5.3.2",
         "symfony/yaml":                         "~2.3",
-        "doctrine/dbal":                        "~2.1",
+        "doctrine/dbal":                        "~2.3",
         "knplabs/console-service-provider":     "dev-master",
         "gridonic/migration-service-provider":  "dev-master"
     },
