@@ -1,7 +1,6 @@
-# Migrations
+# DatabaseUtilsServiceProvider
 
-This is a simple utils service for your database. We are using Silex and Doctrine, so this `DatabaseUtilsServiceProvider` is based on it.
-Additionally, you can include
+This is a simple collection of utilities for your database for Silex and Doctrine DBAL.
 
 
 ## Install
@@ -10,13 +9,16 @@ As usual, just include `gridonic/database-utils-service-provider` in your `compo
 
 ```php
 $app->register(new \Gridonic\Provider\DatabaseUtilsServiceProvider(), array(
-    'database_utils.fixtures'                    => PATH_RESOURCES . '/fixtures/*.yml',
-    'database_utils.password_keys'               => array('password'),
-    'database_utils.security.salt'               => 'abcd',
+    'database_utils.fixtures'       => PATH_RESOURCES . '/fixtures/*.yml',
+    'database_utils.password_keys'  => array('password'),
+    'database_utils.security.salt'  => 'abcd',
 ));
 ```
+
 ### Parameters
+
 An overview of the possible parameters
+
 #### `database_utils.fixtures`
 *required for fixtures*
 All your fixtures-files.
