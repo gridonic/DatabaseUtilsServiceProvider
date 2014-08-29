@@ -1,3 +1,9 @@
 #PhpStorm-Files
 atlassian-ide-plugin.xml
 .idea
+
+# Tests
+phpunit.xml
+vendor
+composer.lock
+tests/database/test.db

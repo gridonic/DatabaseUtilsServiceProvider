@@ -47,12 +47,24 @@ EOF
 
         $stmt = $db->query($platform->getListTablesSQL());
 
+        $tablesToDelete = [];
+
         while ($row = $stmt->fetch()) {
             if (isset($row[0])) {
-                $db->query($platform->getDropTableSQL($row[0]));
+                array_push($tablesToDelete, $row[0]);
             } else if (isset($row['Table_type']) && array_values($row)[0] != null) {
-                $db->query($platform->getDropTableSQL(array_values($row)[0]));
+                // SQL
+                array_push($tablesToDelete, array_values($row)[0]);
+            } else if (array_values($row)[0] != null) {
+                // SQLite
+                array_push($tablesToDelete, array_values($row)[0]);
             }
+        }
+
+        unset($stmt);
+
+        foreach($tablesToDelete as $table) {
+            $db->query($platform->getDropTableSQL($table));
         }
 
         if ($platform->supportsForeignKeyConstraints()) {
