@@ -47,7 +47,7 @@ EOF
 
         $stmt = $db->query($platform->getListTablesSQL());
 
-        $tablesToDelete = [];
+        $tablesToDelete = array();
 
         while ($row = $stmt->fetch()) {
             if (isset($row[0])) {
