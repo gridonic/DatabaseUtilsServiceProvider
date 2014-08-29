@@ -1,5 +1,7 @@
 # DatabaseUtilsServiceProvider
 
+[![Build Status](https://travis-ci.org/gridonic/DatabaseUtilsServiceProvider.svg?branch=master)](https://travis-ci.org/gridonic/DatabaseUtilsServiceProvider)
+
 This is a simple collection of utilities for your database for Silex and Doctrine DBAL.
 
 
