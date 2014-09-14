@@ -1,5 +1,4 @@
 <?php
-
 /*
  * This file is part of the MigrationServiceProvider.
  *
@@ -24,8 +23,8 @@ use Gridonic\Provider\MigrationServiceProvider;
  */
 abstract class GridonicTestCase extends \PHPUnit_Framework_TestCase
 {
-    protected $migrationPath = '/../Ressources/migrations';
-    protected $fixturesPath = '/../Ressources/fixtures';
+    protected $migrationPath = '/../Resources/migrations';
+    protected $fixturesPath = '/../Resources/fixtures';
     protected $consoleVersion = '1.0.0';
     protected $consoleName = 'SilexTest';
 
@@ -54,8 +53,8 @@ abstract class GridonicTestCase extends \PHPUnit_Framework_TestCase
         return $app;
     }
 
-    public function registerServices(Application $app) {
-
+    public function registerServices(Application $app)
+    {
         $app->register(new DoctrineServiceProvider());
         $app->register(new MigrationServiceProvider(array(
             'migration.path' => $this->migrationPath,
@@ -78,7 +77,6 @@ abstract class GridonicTestCase extends \PHPUnit_Framework_TestCase
 
     public function createConsoleApplication()
     {
-
         $this->clearDatabase();
 
         /** @var Application $app */
@@ -105,5 +103,4 @@ abstract class GridonicTestCase extends \PHPUnit_Framework_TestCase
         @chmod($databaseDir, 0777);
         @chmod($databaseDir . '/test.db', 0777);
     }
-
 }

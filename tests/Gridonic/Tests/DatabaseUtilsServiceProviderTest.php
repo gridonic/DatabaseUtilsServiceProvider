@@ -1,5 +1,4 @@
 <?php
-
 /**
  * This file is part of the MigrationServiceProvider.
  *
@@ -14,13 +13,11 @@ namespace Gridonic\Tests;
 use Symfony\Component\Console\Tester\CommandTester;
 use Doctrine\DBAL\DBALException;
 
-
 /**
  * Tests for the MigrationServiceProvider
  */
 class DatabaseUtilsServiceProviderTest extends GridonicTestCase
 {
-
     protected $wrongCommand = 'test';
     protected $migrationCommand = 'migration:migrate';
     protected $dropCommand = 'database:drop';
@@ -58,7 +55,6 @@ class DatabaseUtilsServiceProviderTest extends GridonicTestCase
 
         $this->assertInstanceOf('Gridonic\Migration\Manager', $app['migration']);
         $this->assertInstanceOf('Knp\Console\Application', $app['console']);
-
     }
 
     /**
