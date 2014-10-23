@@ -5,8 +5,8 @@ namespace Gridonic\Provider;
 use Silex\ServiceProviderInterface;
 use Silex\Application;
 
-use Knp\Console\ConsoleEvents;
-use Knp\Console\ConsoleEvent;
+use Gridonic\Console\ConsoleEvents;
+use Gridonic\Console\ConsoleEvent;
 
 use Gridonic\Command\DatabaseDropCommand;
 use Gridonic\Command\DatabaseResetCommand;

@@ -2,14 +2,14 @@
 
 namespace Gridonic\Command;
 
-use Knp\Command\Command as KnpCommand;
+use Gridonic\Command\Command as GridonicCommand;
 
 use Symfony\Component\Console\Input\InputDefinition;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class DatabaseDropCommand extends KnpCommand
+class DatabaseDropCommand extends GridonicCommand
 {
     public function configure()
     {

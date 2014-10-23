@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the MigrationServiceProvider.
+ * This file is part of the DatabaseUtilsServiceProvider.
  *
  * (c) Gridonic <hello@gridonic.ch>
  *
@@ -14,7 +14,7 @@ use Symfony\Component\Console\Tester\CommandTester;
 use Doctrine\DBAL\DBALException;
 
 /**
- * Tests for the MigrationServiceProvider
+ * Tests for the DatabaseUtilsServiceProvider
  */
 class DatabaseUtilsServiceProviderTest extends GridonicTestCase
 {
@@ -54,7 +54,7 @@ class DatabaseUtilsServiceProviderTest extends GridonicTestCase
         $app = $this->registerServices($app);
 
         $this->assertInstanceOf('Gridonic\Migration\Manager', $app['migration']);
-        $this->assertInstanceOf('Knp\Console\Application', $app['console']);
+        $this->assertInstanceOf('Gridonic\Console\Application', $app['console']);
     }
 
     /**
@@ -68,7 +68,7 @@ class DatabaseUtilsServiceProviderTest extends GridonicTestCase
         /** @var \Silex\Application $silexApp */
         $silexApp = $app->getSilexApplication();
 
-        $this->assertInstanceOf('Knp\Console\Application', $app);
+        $this->assertInstanceOf('Gridonic\Console\Application', $app);
         $this->assertInstanceOf('Silex\Application', $silexApp);
 
         $this->assertStringStartsWith('<info>SilexTest</info> version <comment>' . $this->consoleVersion . '</comment>', $app->getHelp());
