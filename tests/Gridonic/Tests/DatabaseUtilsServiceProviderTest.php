@@ -62,7 +62,7 @@ class DatabaseUtilsServiceProviderTest extends GridonicTestCase
      */
     public function testExistConsoleCommands()
     {
-        /** @var \Knp\Console\Application $app */
+        /** @var \Gridonic\Console\Application $app */
         $app = $this->createConsoleApplication();
 
         /** @var \Silex\Application $silexApp */
@@ -97,7 +97,7 @@ class DatabaseUtilsServiceProviderTest extends GridonicTestCase
      */
     public function testMigrationCommand()
     {
-        /** @var \Knp\Console\Application $app */
+        /** @var \Gridonic\Console\Application $app */
         $app = $this->createConsoleApplication();
 
         $expectedMigrationMessageSuccess = "Successfully executed 1 migration(s)!\n - Added a test table\n";
@@ -145,7 +145,7 @@ class DatabaseUtilsServiceProviderTest extends GridonicTestCase
      */
     public function testDropCommand()
     {
-        /** @var \Knp\Console\Application $app */
+        /** @var \Gridonic\Console\Application $app */
         $app = $this->createConsoleApplication();
 
         $expectedDropMessage = "Dropping tables...\nAll the tables dropped.\n";
@@ -214,7 +214,7 @@ class DatabaseUtilsServiceProviderTest extends GridonicTestCase
     {
         $expectedMessage = "Purging database...\nLoading fixtures\nFixtures loaded\n";
 
-        /** @var \Knp\Console\Application $app */
+        /** @var \Gridonic\Console\Application $app */
         $app = $this->createConsoleApplication();
 
         // create database
