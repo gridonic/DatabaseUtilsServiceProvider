@@ -2,14 +2,14 @@
 
 namespace Gridonic\Command;
 
-use Knp\Command\Command as KnpCommand;
+use Gridonic\Command\Command as GridonicCommand;
 
 use Silex\Application;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Yaml\Yaml;
 
-class FixturesLoadCommand extends KnpCommand
+class FixturesLoadCommand extends GridonicCommand
 {
     protected $passwordColumns = array();
 

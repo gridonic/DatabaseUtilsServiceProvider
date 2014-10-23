@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the MigrationServiceProvider.
+ * This file is part of the DatabaseUtilsServiceProvider.
  *
  * (c) Gridonic <hello@gridonic.ch>
  *
@@ -13,7 +13,7 @@ namespace Gridonic\Tests;
 use Gridonic\Provider\DatabaseUtilsServiceProvider;
 use Silex\Application;
 use Silex\Provider\DoctrineServiceProvider;
-use Knp\Provider\ConsoleServiceProvider;
+use Gridonic\Provider\ConsoleServiceProvider;
 use Gridonic\Provider\MigrationServiceProvider;
 
 /**

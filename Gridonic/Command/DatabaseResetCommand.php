@@ -2,7 +2,7 @@
 
 namespace Gridonic\Command;
 
-use Knp\Command\Command as KnpCommand;
+use Gridonic\Command\Command as GridonicCommand;
 
 use Symfony\Component\Console\Input\InputDefinition;
 use Symfony\Component\Console\Input\InputArgument;
@@ -11,7 +11,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 use Symfony\Component\Console\Input\ArrayInput;
 
-class DatabaseResetCommand extends KnpCommand
+class DatabaseResetCommand extends GridonicCommand
 {
     public function configure()
     {
