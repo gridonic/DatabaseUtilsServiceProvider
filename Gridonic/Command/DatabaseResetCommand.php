@@ -3,7 +3,6 @@
 namespace Gridonic\Command;
 
 use Gridonic\Command\Command as GridonicCommand;
-
 use Symfony\Component\Console\Input\InputDefinition;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -31,17 +30,12 @@ EOF
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $dialog = $this->getHelperSet()->get('dialog');
-        if (true !== $input->hasParameterOption(array('--no-interaction', '-n')) && !$dialog->askConfirmation($output, '<question>You want to reset the database?</question>')) {
+        if (true !== $input->hasParameterOption(array('--no-interaction', '-n')) && !$dialog->askConfirmation($output, '<question>This will drop all tables, recreate the schema and load fixtures. Are you sure to drop all data?</question>')) {
             return;
         }
 
-
-        $output->writeln('Reset');
-        $output->writeln('....................................');
-
-
-        // drop database
-        $output->writeln('# drop database');
+        // Drop database
+        $output->writeln('Dropping Database...');
         $command = $this->getApplication()->find('database:drop');
 
         $argumentDrop = array(
@@ -54,8 +48,8 @@ EOF
         $output->writeln('....................................');
 
 
-        // build database
-        $output->writeln('# run migration');
+        // Recreate database
+        $output->writeln('Running Migrations...');
 
         $command = $this->getApplication()->find('migration:migrate');
 
@@ -69,14 +63,14 @@ EOF
             $command->run($input, $output);
 
         } else {
-            $output->writeln('# command "migration:migrate" not found.');
-            $output->writeln('# migration not runned.');
+            $output->writeln('Command "migration:migrate" not found.');
+            $output->writeln('No migrations were run.');
         }
 
         $output->writeln('....................................');
 
-        // load fixtures
-        $output->writeln('# load fixtures');
+        // Load fixtures
+        $output->writeln('Loading fixtures...');
 
         $command = $this->getApplication()->find('database:fixtures:load');
 
@@ -90,6 +84,6 @@ EOF
         $output->writeln('....................................');
 
         // at the end
-        $output->writeln('finished Reset');
+        $output->writeln('Reset finished.');
     }
 }

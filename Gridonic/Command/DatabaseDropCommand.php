@@ -3,9 +3,8 @@
 namespace Gridonic\Command;
 
 use Gridonic\Command\Command as GridonicCommand;
-
-use Symfony\Component\Console\Input\InputDefinition;
 use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputDefinition;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -18,7 +17,7 @@ class DatabaseDropCommand extends GridonicCommand
             ->setDescription('Clears the database')->setHelp(
 
                 <<<EOF
-                    The <info>database:drop</info> command drops the database schema
+                    The <info>database:drop</info> command drops the database tables
     <info>app/console database:drop</info>
 EOF
             );
@@ -74,6 +73,6 @@ EOF
             $db->exec('SET FOREIGN_KEY_CHECKS=1;');
         }
 
-        $output->writeln('All the tables dropped.');
+        $output->writeln('All tables were dropped.');
     }
 }
