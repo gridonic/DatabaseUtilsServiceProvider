@@ -148,7 +148,8 @@ class DatabaseUtilsServiceProviderTest extends GridonicTestCase
         /** @var \Gridonic\Console\Application $app */
         $app = $this->createConsoleApplication();
 
-        $expectedDropMessage = "Dropping tables...\nAll the tables dropped.\n";
+        // TOOD: Get this from the the Command itself.
+        $expectedDropMessage = "Dropping tables...\nAll tables were dropped.\n";
 
         // create database
         $migrationCommand = $app->get($this->migrationCommand);
