@@ -54,14 +54,12 @@ EOF
         $command = $this->getApplication()->find('migration:migrate');
 
         if ($command !== null) {
-
             $argumentDrop = array(
                 'command' => 'migration:migrate',
             );
 
             $input = new ArrayInput($argumentDrop);
             $command->run($input, $output);
-
         } else {
             $output->writeln('Command "migration:migrate" not found.');
             $output->writeln('No migrations were run.');

@@ -13,10 +13,9 @@ use Gridonic\Command\DatabaseCreateCommand;
 
 class DatabaseUtilsServiceProvider implements ServiceProviderInterface
 {
-
     public function register(Application $app)
     {
-        $app['dispatcher']->addListener(ConsoleEvents::INIT, function(ConsoleEvent $event) {
+        $app['dispatcher']->addListener(ConsoleEvents::INIT, function (ConsoleEvent $event) {
             $application = $event->getApplication();
             $application->add(new DatabaseCreateCommand());
             $application->add(new DatabaseDropCommand());
@@ -27,11 +26,10 @@ class DatabaseUtilsServiceProvider implements ServiceProviderInterface
     public function boot(Application $app)
     {
         if (isset($app['database_utils.fixtures'])) {
-            $app['dispatcher']->addListener(ConsoleEvents::INIT, function(ConsoleEvent $event) {
+            $app['dispatcher']->addListener(ConsoleEvents::INIT, function (ConsoleEvent $event) {
                 $application = $event->getApplication();
                 $application->add(new FixturesLoadCommand());
             });
         }
     }
-
 }

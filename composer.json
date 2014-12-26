@@ -15,7 +15,7 @@
         "silex/silex": "~1.2",
         "symfony/yaml": "~2.3",
         "doctrine/dbal": ">=2.1, <=2.4",
-        "gridonic/console-service-provider": "~1.0",
+        "gridonic/console-service-provider": "~1",
         "gridonic/migration-service-provider": "~1"
     },
     "require-dev": {

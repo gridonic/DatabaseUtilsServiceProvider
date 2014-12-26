@@ -95,7 +95,8 @@ abstract class GridonicTestCase extends \PHPUnit_Framework_TestCase
         return $app['console'];
     }
 
-    private function clearDatabase() {
+    private function clearDatabase()
+    {
         $databaseDir = __DIR__ . '/../../database';
         if (is_file($databaseDir . '/test.db')) {
             unlink($databaseDir . '/test.db');

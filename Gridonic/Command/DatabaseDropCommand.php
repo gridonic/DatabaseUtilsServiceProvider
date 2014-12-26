@@ -49,15 +49,14 @@ EOF
         $tablesToDelete = array();
 
         while ($row = $stmt->fetch()) {
-
             $arrayValues = array_values($row);
 
             if (isset($row[0])) {
                 array_push($tablesToDelete, $row[0]);
-            } else if (isset($row['Table_type']) && $arrayValues[0] != null) {
+            } elseif (isset($row['Table_type']) && $arrayValues[0] != null) {
                 // SQL
                 array_push($tablesToDelete, $arrayValues[0]);
-            } else if ($arrayValues[0] != null) {
+            } elseif ($arrayValues[0] != null) {
                 // SQLite
                 array_push($tablesToDelete, $arrayValues[0]);
             }
@@ -65,7 +64,7 @@ EOF
 
         unset($stmt);
 
-        foreach($tablesToDelete as $table) {
+        foreach ($tablesToDelete as $table) {
             $db->query($platform->getDropTableSQL($table));
         }
 

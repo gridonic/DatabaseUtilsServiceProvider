@@ -71,11 +71,9 @@ EOF
 
         foreach ($fixtures as $table => $data) {
             foreach ($data as $row) {
-
                 // stripslashes is a workaround for slashes we need
                 // to add around markdown text in fixture files
                 foreach ($row as $key => $value) {
-
                     if (is_string($value)) {
                         if (strpos($value, '"', 0) !== false) {
                             $value = substr($value, 1);
@@ -88,7 +86,6 @@ EOF
                         // encode password fields which are defined
                         // in the password columns array
                         if (in_array($key, $this->passwordColumns) && isset($app['security'])) {
-
                             $output->writeln('Encode ' . $key . ' field');
 
                             $encoder = $app['security.encoder.digest'];

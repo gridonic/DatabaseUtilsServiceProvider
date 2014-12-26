@@ -83,7 +83,7 @@ class DatabaseUtilsServiceProviderTest extends GridonicTestCase
         try {
             $app->get($this->wrongCommand);
             $this->fail('not throwing exception as expected');
-        } catch(\InvalidArgumentException $e) {
+        } catch (\InvalidArgumentException $e) {
             $this->assertInstanceOf('InvalidArgumentException', $e);
             $this->assertEquals('The command "' . $this->wrongCommand . '" does not exist.', $e->getMessage());
         }
@@ -192,7 +192,7 @@ class DatabaseUtilsServiceProviderTest extends GridonicTestCase
 
         try {
             $db->fetchAssoc($request);
-        } catch(DBALException $e) {
+        } catch (DBALException $e) {
             $this->assertStringEndsWith('General error: 1 no such table: test', $e->getMessage());
         }
     }
