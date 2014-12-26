@@ -65,11 +65,7 @@ EOF
         $output->writeln('Processing migrations');
 
         // Migrate
-        try {
-            $migrationManager->migrate();
-        } catch (\Exception $e) {
-            $output->writeln('Error occurred while migrating');
-        }
+        $migrationManager->migrate();
 
         $output->writeln('Schema created');
     }
