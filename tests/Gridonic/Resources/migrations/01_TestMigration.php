@@ -19,17 +19,24 @@ class TestMigration extends AbstractMigration
     public function schemaUp(Schema $schema)
     {
         // before app is started, do the following.
-        $table = $schema->createTable('test');
+        $tableTest = $schema->createTable('test');
 
-        $table->addColumn('test_id', 'integer', array(
+        $tableTest->addColumn('test_id', 'integer', array(
             'unsigned'      => true,
             'autoincrement' => true
         ));
 
-        $table->addColumn('test_name', 'string');
-        $table->addColumn('test_password', 'string');
+        $tableTest->addColumn('test_name', 'string');
+        $tableTest->addColumn('test_password', 'string');
 
-        $table->setPrimaryKey(array('test_id'));
+        $tableTest->setPrimaryKey(array('test_id'));
+
+        // before app is started, do the following.
+        $tableType = $schema->createTable('test_type');
+        $tableType->addColumn('string', 'string');
+        $tableType->addColumn('integer', 'integer');
+        $tableType->addColumn('boolean', 'boolean', array('notnull' => false));
+
     }
 
     public function schemaDown(Schema $schema) {

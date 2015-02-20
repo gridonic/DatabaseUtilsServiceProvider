@@ -245,23 +245,55 @@ class DatabaseUtilsServiceProviderTest extends GridonicTestCase
 
         $this->assertEquals($expectedMessage, $displayTry1);
 
-        // fill up one row
+        // test database content
         $silexApp = $app->getSilexApplication();
 
         /** @var \Doctrine\DBAL\Connection $db */
         $db =$silexApp['db'];
 
+        // test table "test"
         $request = "SELECT * FROM `test` WHERE `test_id` = 1";
-
         $result = $db->fetchAssoc($request);
-
         $expectedResult = array(
             'test_id' => '1',
             'test_name' => 'aaaa',
             'test_password' => 'bbbb',
             'test_created' => '1000000041',
         );
-
         $this->assertEquals($expectedResult, $result);
+
+        // test table "test_type"
+        $request = "SELECT * FROM `test_type`";
+        $result = $db->fetchAll($request);
+        $expectedResult = array(
+            array(
+                'string' => 'bla bla bla',
+                'integer' => 0,
+                'boolean' => true
+            ),
+            array(
+                'string' => '<div class="test">TEST</div>',
+                'integer' => 127,
+                'boolean' => false
+            ),
+            array(
+                'string' => "<div class='test'>TEST</div>",
+                'integer' => -1,
+                'boolean' => null
+            ),
+        );
+        $this->assertEquals($expectedResult, $result);
+
+        // true should be true, but could also be 1
+        // true == 1
+        $this->assertTrue($result[0]['boolean'] == $expectedResult[0]['boolean']);
+
+        // false should be false, but could also be ""
+        // false == ""
+        $this->assertTrue($result[1]['boolean'] == $expectedResult[1]['boolean']);
+
+        // null should be null
+        // null === null
+        $this->assertTrue($result[2]['boolean'] === $expectedResult[2]['boolean']);
     }
 }

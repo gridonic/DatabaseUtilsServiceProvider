@@ -1,0 +1,12 @@
+test_type:
+    -
+        string: "bla bla bla"
+        integer: 0
+        boolean: true
+    -
+        string: <div class="test">TEST</div>
+        integer: 127
+        boolean: false
+    -
+        string: "<div class='test'>TEST</div>"
+        integer: -1

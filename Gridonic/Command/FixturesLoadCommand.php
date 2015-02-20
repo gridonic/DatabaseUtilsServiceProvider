@@ -75,7 +75,7 @@ EOF
                 // to add around markdown text in fixture files
                 foreach ($row as $key => $value) {
                     if (is_string($value)) {
-                        if (strpos($value, '"', 0) !== false) {
+                        if (strpos($value, '"') === 0) {
                             $value = substr($value, 1);
                         }
 
