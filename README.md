@@ -32,7 +32,7 @@ All your fixtures-files.
 *required for `database_utils.password_keys`* To encode the passwords, we use this salt.
 
 ## Commands
-When you have registered the [knplabs\console-service-provider](https://github.com/KnpLabs/ConsoleServiceProvider) correct, you can use the following commands in your console.
+When you have registered the [ConsoleServiceProvider](https://github.com/gridonic/ConsoleServiceProvider) correct, you can use the following commands in your console.
 
 ### `database:drop`
 Clears your database
